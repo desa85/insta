@@ -1,0 +1,57 @@
+body{
+	background-color: #fafafa;
+}
+#checkIn{
+	background-color: #fff;
+	border: solid 1px #ededed;
+	width: 350px;
+}
+#checkIn input{
+	display: table;
+	background-color: #fafafa;
+	height: 30px;
+	border: solid 1px #f3f3f3;
+	margin: auto;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	width: 85%;
+}
+#checkIn input::placeholder{
+	color: #b0b0b0;
+	font-size: 15px;
+	position: relative;
+	right: -10px;
+}
+#checkIn button{
+	display: table;
+	background-color: #3897f0;
+	height: 500;
+	border: none;
+	color: #fff;
+	border-radius: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.lines{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.line{
+	width: 40%;
+	background-color: #fafafa;
+	display: inline-block;
+	padding-top: 1px; 
+	position: relative;
+	top: 15px;
+
+}
+.line-Word{
+	margin: 5px;
+}
+@media (max-width: 450px){
+	#checkIn{
+	background-color: #fafafa;
+	border: none;
+	width: 100%;
+}
+}
