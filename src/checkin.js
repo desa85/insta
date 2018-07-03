@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from 'react-router-dom';
 class Checkin extends Component{
 	constructor(props){
 		super(props)
@@ -8,10 +8,11 @@ class Checkin extends Component{
 	
 
 	render(){
+		console.log(this.props.location);
 		return(
-				
+					
 					<form id = "checkIn" className = "container-fluid">
-					<a>dfihi</a>
+					<link to = "/users"></link>
 					<button>зарегистрироваться через Facebook</button>
 					<div className = "lines"><hr className = "line" /><span className = "line-Word">или</span><hr className = "line"  /></div>
 					<input type = "email"  className = "email" placeholder = "Моб. телефон или эл. адрес" />
