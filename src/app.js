@@ -1,25 +1,38 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
-import { Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
+import Checkin from "./checkin.js";
+import Users from "./Users.js";
+import UserName from "./UserName.js";
+import Routes from "./Routes.js";
+const history = createBrowserHistory();
 class App extends Component{
 	constructor(props){
 		super(props)
+		this.state = {
+			user: [ 
+					{id: 0 ,name: "Витя Акимов", email: "lordpovel@mail.ru", login: "imperator", password: "3570202"}, 
+					{id: 1 ,name: "Паша Неразберихин", email: "lexa@yandex.ru", login: "anarhia", password: "12345"}, 
+					{id: 2 ,name: "Сережa Артемов", email: "jesus@gmail.com", login: "religia", password: "gospod"}]
+		}
 	}
-	
 
+	changeData = (obj) => {
+		this.setState({
+			user: [...this.state.user, obj]
+		})
+	}
 	render(){
-
-		console.log(">>>", React.Children);
 		return(
-					
-					<div>
-						<div>App</div>
-						<ul>
-							<li><Link to = "/">Home</Link></li>
-							<li><Link to = "/users">NoHome</Link></li>
-						</ul>
-						{this.props.children}
-					</div>
+			<Router history = {history}>	
+				<div>
+					<Route path = "/"  component = {Routes} />
+					<Route path = "/checkin" render = {() => <Checkin changeData = {this.changeData} />} />
+					<Route exact path = "/users" render = {() => <Users user = {this.state.user} />} />
+					<Route  path = "/users/:userName" component = {UserName} />
+				</div>
+			</Router>
 				
 			)
 	}
