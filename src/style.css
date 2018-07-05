@@ -29,7 +29,7 @@ li{
 	position: relative;
 	right: -10px;
 }
-#checkIn button{
+#checkIn a, button{
 	display: table;
 	background-color: #3897f0;
 	height: 500;

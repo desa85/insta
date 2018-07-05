@@ -1,7 +1,8 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import createBrowserHistory from "history/createBrowserHistory";
+const history = createBrowserHistory();
 class Checkin extends Component{
 	constructor(props){
 		super(props)
@@ -20,6 +21,7 @@ class Checkin extends Component{
 		password: (event) => {this.setState({password: event.target.value})}
 	}
 	render(){
+		console.log(">>>++", this.context.router);
 		return(		
 			<form id = "checkIn" className = "container-fluid">
 			<link to = "/users"></link>
@@ -53,16 +55,22 @@ class Checkin extends Component{
 				placeholder = "Пароль" 
 				onChange = {this.change.password}
 			/>	
-			<button className = "checkIn-button" onClick = {
-				(e) => {e.preventDefault(); this.props.changeData({
-					id: 0 ,
-					name: this.state.name, 
-					email: this.state.email, 
-					login: this.state.login, 
-					password: this.state.password
-				})
-				}
-			}>регистрация</button>
+			<Link  to = "/users" className = "checkIn-button" onClick = {
+				(e) => { 
+						this.props.changeData({
+							id: 0 ,
+							name: this.state.name, 
+							email: this.state.email, 
+							login: this.state.login, 
+							password: this.state.password
+							})
+						
+						
+						console.log("|||||||", history.location);
+						
+						
+						}
+			}>регистрация</Link>
 			<div>Регистрируясь, вы принимаете наши Условия, Политику использования данных и Политику в отношении файлов cookie.</div>
 			<div>{this.props.children}</div>
 			</form>	
