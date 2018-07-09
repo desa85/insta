@@ -12,26 +12,36 @@ class App extends Component{
 		super(props)
 		this.transition = () => {history.push("/users")}
 		this.state = {
-			user: [ 
-					{id: 0 ,name: "Витя Акимов", email: "lordpovel@mail.ru", login: "imperator", password: "3570202"}, 
-					{id: 1 ,name: "Паша Неразберихин", email: "lexa@yandex.ru", login: "anarhia", password: "12345"}, 
-					{id: 2 ,name: "Сережa Артемов", email: "jesus@gmail.com", login: "religia", password: "gospod"}], a: true
+			user: JSON.parse(localStorage.getItem("users"))
 		}
 	}
 
 	changeData = (obj) => {
+		var mess = "";
+		this.state.user.forEach(function(iteam){
+			if((iteam.login == obj.login) || (iteam.email == obj.email)){
+				
+				mess = "neproshlo"
+			}
+		})
+		if(mess == "neproshlo"){
+			return mess
+		}
 		this.setState({
 			user: [...this.state.user, obj]
 		})
+		localStorage.setItem("users", JSON.stringify([...this.state.user, obj]))
+		return "vsenorm"
 			}
+
 	render(){
-		
+
 		return(
 			<Router history = {history}>	
 				
 				<div>
 					<Route path = "/"  component = {Routes} />
-					<Route path = "/checkin" render = {() => <Checkin changeData = {this.changeData } transition = {this.transition} />} />
+					<Route path = "/checkin" render = {() => <Checkin changeData = {this.changeData } transition = {this.transition} path = {this.state.path} />} />
 					<Route exact path = "/users" render = {() => <Users user = {this.state.user} />} />
 					<Route  path = "/users/:userName" component = {UserName} />
 				</div>

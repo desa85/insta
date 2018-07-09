@@ -55,9 +55,11 @@ class Checkin extends Component{
 				placeholder = "Пароль" 
 				onChange = {this.change.password}
 			/>	
+			<p className = "errCheck"> Такой ник уже есть </p>
 			<Link  to = "/users" className = "checkIn-button" onClick = {
 				(e) => { 
-						this.props.changeData({
+						
+						let verific = this.props.changeData({
 							id: 0 ,
 							name: this.state.name, 
 							email: this.state.email, 
@@ -65,8 +67,12 @@ class Checkin extends Component{
 							password: this.state.password
 							})
 						
+						if(verific == "neproshlo"){
+							e.preventDefault();
+							document.getElementsByClassName("errCheck")[0].style.display = "block";
+							console.log("!!!!!!!", document.getElementsByClassName("errCheck")[0].style);
+						}
 						
-						console.log("|||||||", history.location);
 						
 						
 						}

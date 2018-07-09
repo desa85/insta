@@ -81,6 +81,11 @@ li{
 .fi{
 	color: #000;
 }
+.errCheck{
+	color: #ee0000;
+	background-color: #ffbbbb;
+	display: none;
+}
 @media (max-width: 450px){
 	#checkIn{
 	background-color: #fafafa;

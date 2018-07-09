@@ -6,7 +6,7 @@ class Checkin extends Component{
 		super(props)	
 	}
 	render(){
-		console.log(this.props.location);
+		
 		return(
 				
 					<div id = "users" className = "container">
