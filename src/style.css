@@ -60,6 +60,12 @@ li{
 	width: 350px;
 	border: solid 1px #ededed;
 }
+#search{
+	width: 350px;
+	margin: 0px;
+	position: relative;
+	left: -16px;
+}
 #users ul{
 	padding-left: 0px;
 }
@@ -99,4 +105,8 @@ li{
 }
 .userEmail{
 	display: none;}
+	#search{
+	width: 95%;
+	margin-left: 5px;
+}
 }
