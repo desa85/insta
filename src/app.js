@@ -15,7 +15,41 @@ class App extends Component{
 			user: JSON.parse(localStorage.getItem("users"))
 		}
 	}
-
+	removeUser = (user) => {
+		let arr = this.state.user;
+		console.log(arr);
+		
+		arr.forEach((item, i) => {
+			if(user == item.id){
+				arr.splice(arr.indexOf(arr[i]), 1)
+				localStorage.setItem("users", JSON.stringify(arr))
+				this.setState({user: arr})
+				console.log(arr.indexOf(arr[i]));
+			}
+		} )
+		
+	}
+	changeUser = (user) => {
+		let mess = ""
+		let arr = this.state.user;
+		arr.forEach((item, i) => {
+			if(((user.login == item.login) || (user.email == item.email)) && (user.id != item.id)){
+				mess = "err"
+			}
+			
+		})
+		if(mess == "err") {return mess}
+		arr.forEach((item, i) => {
+			if(user.id == item.id){
+				arr[i].name = user.name;
+				arr[i].email = user.email;
+				arr[i].login = user.login;
+				localStorage.setItem("users", JSON.stringify(arr))
+				this.setState({user: arr})
+			}
+		})
+		return mess
+	}
 	changeData = (obj) => {
 		var mess = "";
 		this.state.user.forEach(function(iteam){
@@ -41,8 +75,13 @@ class App extends Component{
 				
 				<div>
 					<Route path = "/"  component = {Routes} />
-					<Route path = "/checkin" render = {() => <Checkin changeData = {this.changeData } transition = {this.transition} path = {this.state.path} />} />
-					<Route exact path = "/users" render = {() => <Users user = {this.state.user} />} />
+					<Route path = "/checkin" render = {() => 
+						<Checkin changeData = {this.changeData } 
+						transition = {this.transition} 
+						path = {this.state.path}  
+						lengthUsers = {this.state.user.length}
+					/>} />
+					<Route exact path = "/users" render = {() => <Users user = {this.state.user} removeUser = {this.removeUser} changeUser = {this.changeUser} />} />
 					<Route  path = "/users/:userName" component = {UserName} />
 				</div>
 			</Router>

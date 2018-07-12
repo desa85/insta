@@ -75,6 +75,7 @@ li{
 }
 #UserName{
 	font-size: 5em;
+
 }
 .userLogin{
 	font-size: 20px;
@@ -83,17 +84,82 @@ li{
 	font-size: 10px;
 	float: right;
 	color: #000;
+	display: block;
 }
 .fi{
 	color: #000;
+	width: 200px;
 }
 .errCheck{
 	color: #ee0000;
 	background-color: #ffbbbb;
 	display: none;
 }
+.remove{
+	width: 28px;
+	height: 25px;
+	background: url(untill.svg);
+	margin: 5px;
+	float: right;
+	display: block;
+}
+.change{
+	width: 28px;
+	height: 25px;
+	background: url(pen.svg);
+	background-size: 27px;
+	margin: 5px;
+	float: right;
+	display: block;
+}
+.leftUser{
+	float: left;
+	width: 70%;
+}
+.rightUser{
+	float: right;
+	width: 30%;
+	display: block;
+}
+#changeUser{
+	background-color: #fff;
+	border: solid 1px #ededed;
+	width: 350px;
+	display: none;
+}
+#changeUser input{
+	display: table;
+	background-color: #fafafa;
+	height: 30px;
+	border: solid 1px #f3f3f3;
+	margin: auto;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	width: 85%;
+}
+#changeUser input::placeholder{
+	color: #b0b0b0;
+	font-size: 15px;
+	position: relative;
+	right: -10px;
+}
+#changeUser a, button{
+	display: table;
+	background-color: #3897f0;
+	height: 500;
+	border: none;
+	color: #fff;
+	border-radius: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 @media (max-width: 450px){
 	#checkIn{
+	background-color: #fafafa;
+	border: none;
+	width: 100%;
+}
+	#changeUser{
 	background-color: #fafafa;
 	border: none;
 	width: 100%;

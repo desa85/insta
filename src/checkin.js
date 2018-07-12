@@ -60,7 +60,7 @@ class Checkin extends Component{
 				(e) => { 
 						
 						let verific = this.props.changeData({
-							id: 0 ,
+							id: this.props.lengthUsers ,
 							name: this.state.name, 
 							email: this.state.email, 
 							login: this.state.login, 

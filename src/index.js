@@ -13,6 +13,7 @@ const users = [
 if(!localStorage.getItem("users")){
 	localStorage.setItem("users", JSON.stringify(users));
 }
+
 console.log(localStorage.getItem("users"));
 const history = createBrowserHistory();
 ReactDOM.render(
