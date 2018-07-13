@@ -6,9 +6,16 @@ class UserName extends Component{
 		super(props);
 	}
 	render(){
-		return(
-			<div className = "container" id = "UserName">{this.props.match.params.userName}</div>
-		)
+		let commponent = null;
+		JSON.parse(localStorage.getItem("users")).forEach((item, i) => {
+			if(item.name == this.props.match.params.userName){
+			commponent = <div className = "container" id = "UserName">{this.props.match.params.userName}</div>
+		}
+		})
+		if(!commponent){
+			commponent = <div className = "container" id = "UserName">{"Такого пользоватеклья к сожалению нет"}</div>
+		}
+		return commponent
 	}
 }
 export default UserName
