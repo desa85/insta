@@ -16,15 +16,12 @@ class App extends Component{
 		}
 	}
 	removeUser = (user) => {
-		let arr = this.state.user;
-		console.log(arr);
-		
+		let arr = this.state.user;	
 		arr.forEach((item, i) => {
 			if(user == item.id){
 				arr.splice(arr.indexOf(arr[i]), 1)
 				localStorage.setItem("users", JSON.stringify(arr))
 				this.setState({user: arr})
-				console.log(arr.indexOf(arr[i]));
 			}
 		} )
 		
@@ -55,17 +52,17 @@ class App extends Component{
 		this.state.user.forEach(function(iteam){
 			if((iteam.login == obj.login) || (iteam.email == obj.email)){
 				
-				mess = "neproshlo"
+				mess = "err"
 			}
 		})
-		if(mess == "neproshlo"){
+		if(mess == "err"){
 			return mess
 		}
 		this.setState({
 			user: [...this.state.user, obj]
 		})
 		localStorage.setItem("users", JSON.stringify([...this.state.user, obj]))
-		return "vsenorm"
+		return "none"
 			}
 
 	render(){

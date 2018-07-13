@@ -9,7 +9,6 @@ class Routes extends Component{
 		if(this.props.history.location.pathname == "/"){
 			this.props.history.push("/checkin")
 		}
-		console.log(">>>", this.props.history.location.pathname);
 		return(
 			<div>
 				<ul>

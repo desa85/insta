@@ -21,7 +21,6 @@ class Checkin extends Component{
 		password: (event) => {this.setState({password: event.target.value})}
 	}
 	render(){
-		console.log(">>>++", this.context.router);
 		return(		
 			<form id = "checkIn" className = "container-fluid">
 			<link to = "/users"></link>
@@ -59,23 +58,23 @@ class Checkin extends Component{
 			<Link  to = "/users" className = "checkIn-button" onClick = {
 				(e) => { 
 						
-						let verific = this.props.changeData({
-							id: this.props.lengthUsers ,
-							name: this.state.name, 
-							email: this.state.email, 
-							login: this.state.login, 
-							password: this.state.password
-							})
-						
-						if(verific == "neproshlo"){
-							e.preventDefault();
-							document.getElementsByClassName("errCheck")[0].style.display = "block";
-							console.log("!!!!!!!", document.getElementsByClassName("errCheck")[0].style);
-						}
-						
-						
-						
-						}
+					let verific = this.props.changeData({
+						id: this.props.lengthUsers ,
+						name: this.state.name, 
+						email: this.state.email, 
+						login: this.state.login, 
+						password: this.state.password
+						})
+					
+					if(verific == "err"){
+						e.preventDefault();
+						document.getElementsByClassName("errCheck")[0].style.display = "block";
+						console.log("!!!!!!!", document.getElementsByClassName("errCheck")[0].style);
+					}
+					
+					
+					
+				}
 			}>регистрация</Link>
 			<div>Регистрируясь, вы принимаете наши Условия, Политику использования данных и Политику в отношении файлов cookie.</div>
 			<div>{this.props.children}</div>

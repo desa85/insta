@@ -29,8 +29,6 @@ class Checkin extends Component{
 							</div>
 							<div className = "remove" onClick = {(e) => {this.props.removeUser(val.id); e.preventDefault();}}></div>
 							<div className = "change" onClick = {(e) => {
-								 
-								console.log(e.target);
 								e.preventDefault();
 								this.setState({
 									chname: val.name,
@@ -73,8 +71,7 @@ class Checkin extends Component{
 									else if(val.login.search(reg) == 0){
 										return form(val, index)
 									}
-							}
-							)
+								})
 							}
 							
 						</ul>
